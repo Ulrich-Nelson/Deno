@@ -1,4 +1,4 @@
-import { UserDB } from '../db/userDB.ts';
+import { UserDB } from '../db/UserDB.ts';
 import { roleTypes } from '../types/roleTypes.ts';
 import { hash } from '../helpers/password.helpers.ts';
 import UserInterfaces from '../interfaces/UserInterfaces.ts';
@@ -38,7 +38,6 @@ export class UserModels extends UserDB implements UserInterfaces {
         this._role = role;
         this.update({role: role});
     }
-
     getAge(): Number {
         var ageDifMs = Date.now() - this.dateNaiss.getTime();
         var ageDate = new Date(ageDifMs);
@@ -47,7 +46,6 @@ export class UserModels extends UserDB implements UserInterfaces {
     fullName(): string {
         return `${this.lastname} ${this.firstname}`;
     }
-
     async insert(): Promise<void> {
         this.password = await hash(this.password);
         this.id = await this.userdb.insertOne({

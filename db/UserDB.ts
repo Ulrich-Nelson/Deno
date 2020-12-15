@@ -8,7 +8,7 @@ export class UserDB {
         this.userdb = db.collection<UserInterfaces>("users");
     }
 
-    update(): Promise < any > {
+    update(update: UserInterfaces): Promise < any > {
         throw new Error('Method not implemented.');
     }
     delete(): Promise < any > {
