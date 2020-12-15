@@ -1,6 +1,10 @@
-import { roleTypes } from '../types/roleTypes';
+import { roleTypes } from '../types/roleTypes.ts';
 
 export default interface UserInterfaces {
+   
+    
+    _id: { $oid: string }|null;
+
     email: string;
     password: string;
     lastname: string;
@@ -10,10 +14,9 @@ export default interface UserInterfaces {
     dateNaiss: Date;
     role: roleTypes;
 
-    //Méthodes de notre interface
     getAge(): Number;
     fullName(): string;
-    insert(): Promise < any > ;
+    insert(): Promise<void> ;
     update(): Promise < any > ;
     delete(): Promise < any > ;
 }
